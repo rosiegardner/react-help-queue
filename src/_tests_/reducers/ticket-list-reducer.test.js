@@ -11,7 +11,7 @@ describe('ticketListReducer', () => {
     }, 2: {
       names: 'Jasmine and Justine',
       location: '2a',
-      issue: 'Reducer has side effect.',
+      issue: 'Reducer has side effects.',
       id: 2
     }
   }
@@ -57,7 +57,7 @@ describe('ticketListReducer', () => {
       2: {
         names: 'Jasmine and Justine',
         location: '2a',
-        issue: 'Reducer has side effects',
+        issue: 'Reducer has side effects.',
         id: 2
       }
     });
