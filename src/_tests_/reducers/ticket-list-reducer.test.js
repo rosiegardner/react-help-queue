@@ -1,8 +1,24 @@
 import ticketListReducer from '../../reducers/ticket-list-reducer';
+import * as c from './../../actions/ActionTypes';
 import { formatDistanceToNow } from 'date-fns';
 
-describe('ticketListReducer', () => {
 
+describe('ticketListReducer', () => {
+  
+  let action;
+
+  const ticketData = {
+    names: 'Ryan & Aimen',
+    location: '4b',
+    issue: 'Redux action is not working correctly.',
+    timeOpen: new Date(),
+    formattedWaitTime: formatDistanceToNow(new Date(),
+    {
+      addSuffix: true
+    }),
+    id: 1
+  };
+  
   const currentState = {
     1: {
       names: 'Ryan & Aimen',
@@ -17,38 +33,28 @@ describe('ticketListReducer', () => {
     }
   }
 
-  let action;
-  const ticketData = {
-    names: 'Ryan & Aimen',
-    location: '4b',
-    issue: 'Redux action is not working correctly.',
-    timeOpen: new Date(),
-    formattedWaitTime: formatDistanceToNow(new Date(),
-    {
-      addSuffix: true
-    });
-    id: 1
-  };
-
   test('Should return default state if there is no action type passed into the reducer', () => {
     expect(ticketListReducer({}, { type: null })).toEqual({});
   });
 
   test('Should successfully add new ticket data to mainTicketList', () => {
-    const { names, location, issue, id } = ticketData;
+    const { names, location, issue, id, formattedWaitTime, timeOpen } = ticketData;
     action = {
-      type: 'ADD_TICKET',
+      type: c.ADD_TICKET,
       names: names,
       location: location,
       issue: issue,
+      timeOpen: timeOpen,
+      formattedWaitTime: formattedWaitTime,
       id: id
     };
-
     expect(ticketListReducer({}, action)).toEqual({
       [id] : {
         names: names,
         location: location,
         issue: issue,
+        timeOpen: timeOpen,
+        formattedWaitTime: 'less than a minute ago',
         id: id
       }
     });
