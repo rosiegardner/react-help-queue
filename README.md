@@ -3,7 +3,7 @@
 #### By: Rosie Gardner
 
 ## Description
- This web application was created as an Independent Project for React Fundamentals and Redux - Introduction to create-react-app, JSX, props, and components. Using full CRUD functionality, this application allows users to add, view, update, edit, and delete tickets.
+ This web application was created as an exercise for React Fundamentals and Redux - Introduction to create-react-app, JSX, props, and components. Using full CRUD functionality, this application allows users to add, view, update, edit, and delete tickets.
 
 ### Technologies Used
 
